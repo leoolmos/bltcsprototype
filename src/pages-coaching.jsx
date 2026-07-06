@@ -83,6 +83,9 @@ function CoachingPage({ navigate }) {
             <SportDot sport={label}/> {label}
           </a>
         ))}
+        <a href="#coach-camps" className="inline-flex items-center gap-2 rounded-full border border-line bg-paper px-4 py-1.5 text-sm font-medium hover:border-ink transition">
+          <Icon name="sparkles" size={13} className="text-clay"/> Holiday camps
+        </a>
       </div>
 
       <div className="mt-10 space-y-16">
@@ -160,6 +163,75 @@ function CoachingPage({ navigate }) {
             <Btn href="https://jasonstotallytennisbltc.pembee.app/iframe" target="_blank" variant="primary" size="md" className="flex-shrink-0">
               View adults &amp; junior programme <Icon name="arrowUpRight" size={15}/>
             </Btn>
+          </div>
+        </section>
+
+        {/* ── HOLIDAY CAMPS — Jason's Totally Tennis ───────────── */}
+        <section id="coach-camps" className="scroll-mt-24">
+          <SportHeader
+            sport="tennis"
+            title="Holiday camps"
+            lead="Four hours of tennis and multi-sport fun each day of the school holidays — football, racketball, badminton, rounders and fun tennis games alongside the tennis. No experience needed, all standards welcome, and every camp is run by LTA-licensed, DBS-checked coaches."
+          />
+
+          {/* Contact-first callout */}
+          <div className="rounded-xl bg-club text-paper overflow-hidden shadow-card mb-6">
+            <div className="p-7 md:p-8 grid grid-cols-1 lg:grid-cols-12 gap-7 items-center">
+              <div className="lg:col-span-7">
+                <Pill tone="clay" className="!bg-clay/20 !border-clay/40 !text-paper mb-4">Run by Jason's Totally Tennis</Pill>
+                <h3 className="display text-2xl md:text-3xl leading-tight">Book a holiday camp through Jason's team.</h3>
+                <p className="mt-3 text-paper/80 leading-relaxed max-w-lg">
+                  Sessions run 9:00am–1:00pm and all equipment is provided. Please <span className="font-medium text-paper">contact Jason's Totally Tennis first</span> to check the right group and availability — before booking a place online. Holiday courses are non-refundable as staff are set in advance.
+                </p>
+                <div className="mt-5">
+                  <Btn href="https://jasonstotallytennis.pembee.app/iframe?filters=621e123bd7da5300097609d3-621e12e37b407a0009f5a930" target="_blank" variant="clay" size="md">
+                    Browse &amp; book all camps <Icon name="arrowUpRight" size={15}/>
+                  </Btn>
+                </div>
+              </div>
+              <div className="lg:col-span-5">
+                <div className="rounded-lg bg-paper text-ink p-5">
+                  <div className="mono text-[11px] uppercase tracking-wider text-mute mb-3">Contact Jason's Totally Tennis</div>
+                  <a href="mailto:enquiries@jasonstotallytennis.com" className="flex items-center gap-3 group mb-3">
+                    <span className="w-9 h-9 rounded-md border border-line grid place-items-center group-hover:bg-ink group-hover:text-paper transition flex-shrink-0">
+                      <Icon name="mail" size={15}/>
+                    </span>
+                    <span className="text-sm break-all">enquiries@jasonstotallytennis.com</span>
+                  </a>
+                  <a href="tel:02084668473" className="flex items-center gap-3 group">
+                    <span className="w-9 h-9 rounded-md border border-line grid place-items-center group-hover:bg-ink group-hover:text-paper transition flex-shrink-0">
+                      <Icon name="phone" size={15}/>
+                    </span>
+                    <span className="text-sm">020 8466 8473</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Two age-group camp cards — compact, showing only what differs */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {[
+              {
+                name: 'Mini Holiday Fun', age: 'Age 4–8',
+                note: 'The gentlest introduction — plus an optional short arts & craft session to break up the day.',
+                href: 'https://jasonstotallytennis.pembee.app/activity/6a05a7278ea2b939e124f46b',
+              },
+              {
+                name: 'Junior Holiday Fun', age: 'Age 9–15',
+                note: 'A great intro for new players and a fun way for existing players to keep building their skills.',
+                href: 'https://jasonstotallytennis.pembee.app/activity/6a05a60222230f37346e6e7f',
+              },
+            ].map((camp) => (
+              <div key={camp.name} className="rounded-md border border-line bg-paper p-6 flex flex-col h-full">
+                <div className="mono text-[11px] uppercase tracking-[0.14em] text-club mb-1.5">{camp.age}</div>
+                <h4 className="display text-2xl leading-none">{camp.name}</h4>
+                <p className="mt-3 text-sm text-ink/75 leading-relaxed flex-1">{camp.note}</p>
+                <Btn href={camp.href} target="_blank" variant="primary" size="md" className="w-full justify-center mt-5">
+                  Book {camp.name.split(' ')[0]} camp <Icon name="arrowUpRight" size={15}/>
+                </Btn>
+              </div>
+            ))}
           </div>
         </section>
 
